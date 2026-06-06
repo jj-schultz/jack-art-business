@@ -1,2 +1,22 @@
-# jack-art-business
-Goal of this is to be the knowlege base for Jack's art business
+# Jack's Art Business
+
+This repository is the long-term memory, documentation hub, and storage home for
+all things related to Jack's art business.
+
+## Primary Goal
+
+By August 1, 2026, Jack should have recurring revenue from his art or creative
+work.
+
+All work in this repository should support that goal. Notes, research, plans,
+experiments, assets, project docs, and operational decisions should make it
+easier to build, maintain, and grow recurring creative revenue.
+
+## Project Management
+
+Projects and tasks are managed in the Linear initiative:
+
+[Jack's Art Business](https://linear.app/jj-schultz/initiative/jacks-art-business-33835162bc51/overview)
+
+Codex has permission to add, edit, and delete projects and issues in this
+initiative when doing work in support of the primary goal.
