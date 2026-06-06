@@ -29,4 +29,6 @@ initiative when doing so helps advance the primary goal.
   work without rediscovery.
 - Prefer concrete next actions, project plans, reusable notes, and decisions
   that move Jack toward recurring creative revenue.
+- When planning projects and tasks, keep tasks small, quick to complete, and
+  easy to verify. Smaller and more completable is better than long-running work.
 - When Linear and this repo both need updates, keep them aligned.
