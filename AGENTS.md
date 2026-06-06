@@ -32,3 +32,12 @@ initiative when doing so helps advance the primary goal.
 - When planning projects and tasks, keep tasks small, quick to complete, and
   easy to verify. Smaller and more completable is better than long-running work.
 - When Linear and this repo both need updates, keep them aligned.
+
+## Strategy Docs
+
+Before planning agentic workflows, dashboards, or the first business systems,
+read:
+
+- `docs/agentic-support-layer.md`
+- `docs/dashboard-layer.md`
+- `docs/research/inspired-inventory-art-sales.md`

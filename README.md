@@ -28,3 +28,9 @@ Projects and tasks are managed in the Linear initiative:
 
 Codex has permission to add, edit, and delete projects and issues in this
 initiative when doing work in support of the primary goal.
+
+## Planning Docs
+
+- [Inspired Inventory Art Sales Research](docs/research/inspired-inventory-art-sales.md)
+- [Agentic Support Layer](docs/agentic-support-layer.md)
+- [Dashboard Layer](docs/dashboard-layer.md)
