@@ -3,6 +3,14 @@
 This repository is the long-term memory, documentation hub, and storage home for
 all things related to Jack's art business.
 
+## About Jack
+
+Jack is a 16-year-old boy living in San Francisco. He is very talented with
+pen-and-ink work on paper, also has skills with digital media, and is very tech
+savvy.
+
+Jack will use this project and Codex to plan and execute on his art business.
+
 ## Primary Goal
 
 By August 1, 2026, Jack should have recurring revenue from his art or creative
