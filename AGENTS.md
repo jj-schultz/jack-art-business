@@ -29,6 +29,16 @@ initiative when doing so helps advance the primary goal.
 
 ## Git Workflow
 
+At the start of every chat, sync with GitHub `main` before making changes:
+
+1. Check the working tree.
+2. Run `git fetch origin`.
+3. Run `git pull --rebase origin main`.
+4. If merge/rebase conflicts occur, resolve them automatically when the correct
+   resolution is clear, preserve intended user work, verify the result, and
+   continue the rebase. Ask the user only if a conflict cannot be resolved
+   safely or confidently.
+
 After any chat that modifies files in this repository, commit the intended
 changes and push them to the GitHub `main` branch unless the user explicitly says
 not to. Keep commits focused, include only intended files, and verify the working
