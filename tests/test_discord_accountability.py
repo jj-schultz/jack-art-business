@@ -2,6 +2,7 @@ import csv
 import importlib.util
 import tempfile
 import unittest
+from unittest import mock
 from pathlib import Path
 
 
@@ -89,6 +90,51 @@ class DiscordAccountabilityTest(unittest.TestCase):
                     "notes": "",
                 }
             ],
+        )
+
+    def test_send_webhook_rejects_non_webhook_url_before_request(self):
+        with mock.patch.object(discord_accountability.request, "urlopen") as urlopen:
+            with self.assertRaises(SystemExit) as raised:
+                discord_accountability.send_webhook(
+                    "cd /Users/jjschultz/src/jack-art-business",
+                    "hello",
+                )
+
+        self.assertIn("Discord webhook URL is invalid", str(raised.exception))
+        urlopen.assert_not_called()
+
+    def test_send_webhook_uses_discord_json_headers(self):
+        captured = {}
+
+        class Response:
+            def __enter__(self):
+                return self
+
+            def __exit__(self, exc_type, exc, traceback):
+                return False
+
+            def read(self):
+                return b'{"id":"123"}'
+
+        def fake_urlopen(webhook_request, timeout):
+            captured["request"] = webhook_request
+            captured["timeout"] = timeout
+            return Response()
+
+        with mock.patch.object(discord_accountability.request, "urlopen", fake_urlopen):
+            message_id = discord_accountability.send_webhook(
+                "https://discord.com/api/webhooks/123/token",
+                "hello",
+            )
+
+        self.assertEqual(message_id, "123")
+        self.assertEqual(captured["timeout"], 20)
+        self.assertEqual(captured["request"].get_method(), "POST")
+        self.assertEqual(captured["request"].headers["Content-type"], "application/json")
+        self.assertIn("Jack Art Business", captured["request"].headers["User-agent"])
+        self.assertEqual(
+            captured["request"].full_url,
+            "https://discord.com/api/webhooks/123/token?wait=true",
         )
 
 

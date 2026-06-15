@@ -10,6 +10,7 @@ import os
 from collections import Counter
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import urlparse
 from urllib import request
 from urllib.error import HTTPError, URLError
 
@@ -206,6 +207,13 @@ def write_entries(log_path: Path, entries: list[dict[str, str]]) -> None:
 
 
 def send_webhook(webhook_url: str, prompt: str) -> str:
+    webhook_url = webhook_url.strip()
+    parsed = urlparse(webhook_url)
+    if parsed.scheme != "https" or parsed.netloc not in {"discord.com", "discordapp.com"}:
+        raise SystemExit("Discord webhook URL is invalid.")
+    if not parsed.path.startswith("/api/webhooks/"):
+        raise SystemExit("Discord webhook URL is invalid.")
+
     payload = json.dumps(
         {
             "content": prompt,
@@ -218,7 +226,10 @@ def send_webhook(webhook_url: str, prompt: str) -> str:
     webhook_request = request.Request(
         url,
         data=payload,
-        headers={"Content-Type": "application/json"},
+        headers={
+            "Content-Type": "application/json",
+            "User-Agent": "Jack Art Business Discord Accountability/1.0",
+        },
         method="POST",
     )
 
