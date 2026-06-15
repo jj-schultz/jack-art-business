@@ -1,1 +1,2 @@
 checkin_id,sent_at_local,recommended_send_hour,voice,prompt_text,discord_message_id,response_received,response_received_at_local,response_summary,productive_progress,next_step,blocker,follow_up_owner,follow_up_due,notes
+2026-06-15-test,2026-06-14T19:33:05,16,direct_teammate,"Test prompt from Jack's Art Business accountability loop. If you can see this in #jack-art-checkins, the Discord webhook is connected.",1515906971570540575,,,,,,,,,
