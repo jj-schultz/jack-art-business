@@ -5,12 +5,17 @@ all things related to Jack's art business.
 
 ## North Star
 
-The primary goal is for Jack to have recurring revenue from his art or creative
-work by August 1, 2026.
+Jack's long-term goal is to use his art and creativity as the foundation for his
+career.
+
+The short-term goal is for Jack to make money this summer using his art or
+creative work, with an August 1, 2026 milestone for recurring or consistent
+revenue.
 
 All work should support this goal. When creating notes, plans, research,
 documents, assets, or tasks, connect the work back to the goal of recurring
-creative revenue.
+creative revenue and Jack's longer-term future as someone who makes money through
+his art and creativity.
 
 ## Linear
 
@@ -22,6 +27,13 @@ https://linear.app/jj-schultz/initiative/jacks-art-business-33835162bc51/overvie
 Agents have permission to add, edit, and delete projects and issues in this
 initiative when doing so helps advance the primary goal.
 
+## Git Workflow
+
+After any chat that modifies files in this repository, commit the intended
+changes and push them to the GitHub `main` branch unless the user explicitly says
+not to. Keep commits focused, include only intended files, and verify the working
+tree before and after pushing.
+
 ## Working Style
 
 - Treat this repo as the source of durable context for Jack's art business.
@@ -29,6 +41,9 @@ initiative when doing so helps advance the primary goal.
   work without rediscovery.
 - Prefer concrete next actions, project plans, reusable notes, and decisions
   that move Jack toward recurring creative revenue.
+- Balance short-term money experiments with long-term career-building assets:
+  portfolio, catalog, audience, sales skills, creative confidence, and durable
+  business systems.
 - When planning projects and tasks, keep tasks small, quick to complete, and
   easy to verify. Smaller and more completable is better than long-running work.
 - When Linear and this repo both need updates, keep them aligned.

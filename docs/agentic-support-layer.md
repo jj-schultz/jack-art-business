@@ -2,13 +2,19 @@
 
 This document captures how Codex or another agentic harness can help Jack
 accelerate his art business while keeping the work low-pressure, accountable,
-and aligned with the August 1, 2026 recurring creative revenue goal.
+and aligned with both the summer 2026 revenue milestone and Jack's long-term goal
+of using his art and creativity as the foundation for his career.
 
 ## Operating Principle
 
 The agent should not tell Jack what to draw or turn art into homework. The agent
 should help preserve, package, organize, and sell the work Jack creates when he
 is inspired.
+
+Short-term agent work should help Jack make money this summer. Long-term agent
+work should also build assets and habits that support future creative income:
+portfolio, catalog, audience, product experiments, sales records, decision
+history, and confidence using art as a career path.
 
 The best agent behavior is:
 

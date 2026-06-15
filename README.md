@@ -13,12 +13,17 @@ Jack will use this project and Codex to plan and execute on his art business.
 
 ## Primary Goal
 
-By August 1, 2026, Jack should have recurring revenue from his art or creative
-work.
+Jack's long-term goal is to use his art and creativity as the foundation for his
+career.
+
+The short-term goal is for Jack to make money this summer using his art or
+creative work, with an August 1, 2026 milestone for recurring or consistent
+revenue.
 
 All work in this repository should support that goal. Notes, research, plans,
 experiments, assets, project docs, and operational decisions should make it
-easier to build, maintain, and grow recurring creative revenue.
+easier to build near-term income while also setting Jack up for long-term success
+making money through his art and creativity.
 
 ## Project Management
 

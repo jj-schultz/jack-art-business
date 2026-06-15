@@ -10,7 +10,8 @@ productivity metrics. It should answer whether the business system is getting
 healthier and whether finished art is being turned into available products.
 
 Dashboards should support the August 1, 2026 goal: recurring or consistent
-revenue from Jack's art or creative work.
+revenue from Jack's art or creative work. They should also keep an eye on Jack's
+long-term goal of using art and creativity as the foundation for his career.
 
 ## Recommended First Implementation
 
@@ -41,7 +42,8 @@ The first dashboard should answer:
 2. What can be sold right now?
 3. Has anything sold?
 4. What experiment are we running next?
-5. What is the smallest next action?
+5. What long-term career asset is being built?
+6. What is the smallest next action?
 
 ## Dashboard Ideas
 
@@ -58,6 +60,8 @@ Metrics:
 - Available pieces for sale.
 - Products ready to sell.
 - Interested supporters or email signups.
+- Career-building assets created, such as catalog entries, portfolio pieces,
+  product tests, buyer feedback, and reusable sales materials.
 - Last business action completed.
 - Current smallest next action.
 
