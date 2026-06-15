@@ -39,3 +39,4 @@ initiative when doing work in support of the primary goal.
 - [Inspired Inventory Art Sales Research](docs/research/inspired-inventory-art-sales.md)
 - [Agentic Support Layer](docs/agentic-support-layer.md)
 - [Dashboard Layer](docs/dashboard-layer.md)
+- [Discord Accountability Loop](docs/discord-accountability-loop.md)

@@ -133,6 +133,30 @@ Metrics:
 The dashboard should reward completed small tasks rather than accumulate huge
 unfinished projects.
 
+### Discord Accountability Dashboard
+
+Purpose: understand whether Discord nudges are helping Jack take small,
+productive steps toward art income.
+
+Source:
+
+- `data/discord_accountability_log.csv`
+
+Metrics:
+
+- Prompts sent this week.
+- Response rate.
+- Best response hour.
+- Voice used: gentle coach, direct teammate, or game challenge.
+- Productive progress responses.
+- Blockers named.
+- Next steps identified.
+- Follow-ups assigned to Jack, parent/guardian, Codex, or another agent.
+
+This dashboard should evaluate the support system, not judge Jack. If response
+rate drops or blockers increase, the next move is to soften the prompts, reduce
+friction, or pick easier next actions.
+
 ### Experiment Dashboard
 
 Purpose: track small business tests.

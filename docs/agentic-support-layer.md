@@ -156,6 +156,24 @@ Outputs:
 - Updated Linear tasks if needed.
 - 1-3 suggested next actions.
 
+### Discord Daily Accountability
+
+Because Jack primarily uses Discord, daily accountability should happen there
+instead of email or text. The first version is defined in
+`docs/discord-accountability-loop.md`.
+
+The daily Discord loop should:
+
+- Talk to Jack directly in a private Discord space.
+- Use an adaptive voice: gentle coach, direct teammate, or game challenge.
+- Send prompts near the hour when Jack has historically responded.
+- Count broad productive progress, including making art, cataloging, pricing,
+  sharing, learning, or removing blockers.
+- Log structured summaries in this repo instead of full transcripts.
+
+This loop is meant to create momentum toward recurring creative revenue without
+making the art business feel like homework.
+
 ### Research Agent
 
 Research should answer practical questions that reduce uncertainty.
