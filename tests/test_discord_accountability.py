@@ -44,6 +44,51 @@ class DiscordAccountabilityTest(unittest.TestCase):
 
         self.assertEqual(discord_accountability.choose_voice(entries), "direct_teammate")
 
+    def test_load_next_actions_returns_ready_open_actions(self):
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            actions_path = Path(tmp_dir) / "next_actions.csv"
+            actions_path.write_text(
+                "id,status,priority,owner,action,why,done_condition\n"
+                "A-001,done,1,Jack,Old task,Old reason,Old done\n"
+                "A-002,ready,1,Jack,Photograph one finished piece,"
+                "Creates a sellable catalog asset,"
+                "One clear photo is posted or saved\n"
+                "A-003,paused,2,Jack,Paused task,Paused reason,Paused done\n",
+                encoding="utf-8",
+            )
+
+            actions = discord_accountability.load_next_actions(actions_path)
+
+        self.assertEqual(
+            actions,
+            [
+                {
+                    "id": "A-002",
+                    "status": "ready",
+                    "priority": "1",
+                    "owner": "Jack",
+                    "action": "Photograph one finished piece",
+                    "why": "Creates a sellable catalog asset",
+                    "done_condition": "One clear photo is posted or saved",
+                }
+            ],
+        )
+
+    def test_latest_next_step_prefers_ready_action_over_log_fallback(self):
+        entries = [{"next_step": "Generic fallback from last response."}]
+        actions = [
+            {
+                "id": "A-002",
+                "action": "Photograph one finished piece",
+                "done_condition": "One clear photo is posted or saved",
+            }
+        ]
+
+        self.assertEqual(
+            discord_accountability.latest_next_step(entries, actions),
+            "Photograph one finished piece. Done when: One clear photo is posted or saved",
+        )
+
     def test_recommended_send_hour_uses_most_common_response_hour(self):
         entries = [
             {"response_received_at_local": "2026-06-13T20:14:00"},

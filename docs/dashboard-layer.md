@@ -141,6 +141,7 @@ productive steps toward art income.
 Source:
 
 - `data/discord_accountability_log.csv`
+- `data/next_actions.csv`
 
 Metrics:
 
@@ -151,6 +152,7 @@ Metrics:
 - Productive progress responses.
 - Blockers named.
 - Next steps identified.
+- Ready next actions available for Jack.
 - Follow-ups assigned to Jack, parent/guardian, Codex, or another agent.
 
 This dashboard should evaluate the support system, not judge Jack. If response

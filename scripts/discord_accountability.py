@@ -16,6 +16,7 @@ from urllib.error import HTTPError, URLError
 
 
 DEFAULT_LOG_PATH = Path("data/discord_accountability_log.csv")
+DEFAULT_NEXT_ACTIONS_PATH = Path("data/next_actions.csv")
 DEFAULT_SEND_HOUR = 16
 FIELDNAMES = [
     "checkin_id",
@@ -42,6 +43,23 @@ def load_entries(log_path: Path) -> list[dict[str, str]]:
 
     with log_path.open(newline="", encoding="utf-8") as handle:
         return list(csv.DictReader(handle))
+
+
+def load_next_actions(actions_path: Path) -> list[dict[str, str]]:
+    if not actions_path.exists():
+        return []
+
+    with actions_path.open(newline="", encoding="utf-8") as handle:
+        actions = list(csv.DictReader(handle))
+
+    eligible_statuses = {"", "ready", "open"}
+    return [
+        action
+        for action in actions
+        if action.get("owner") == "Jack"
+        and action.get("status", "").strip().lower() in eligible_statuses
+        and action.get("action", "").strip()
+    ]
 
 
 def choose_voice(entries: list[dict[str, str]]) -> str:
@@ -82,7 +100,19 @@ def recommended_send_hour(entries: list[dict[str, str]]) -> int:
     return Counter(hours).most_common(1)[0][0]
 
 
-def latest_next_step(entries: list[dict[str, str]]) -> str:
+def latest_next_step(
+    entries: list[dict[str, str]],
+    actions: list[dict[str, str]] | None = None,
+) -> str:
+    actions = actions or []
+    if actions:
+        action = actions[0]
+        next_step = action.get("action", "").strip()
+        done_condition = action.get("done_condition", "").strip()
+        if done_condition:
+            return f"{next_step}. Done when: {done_condition}"
+        return next_step
+
     for row in reversed(entries):
         next_step = row.get("next_step", "").strip()
         if next_step:
@@ -90,8 +120,12 @@ def latest_next_step(entries: list[dict[str, str]]) -> str:
     return "pick one tiny art-money step"
 
 
-def build_prompt(voice: str, entries: list[dict[str, str]]) -> str:
-    next_step = latest_next_step(entries)
+def build_prompt(
+    voice: str,
+    entries: list[dict[str, str]],
+    actions: list[dict[str, str]] | None = None,
+) -> str:
+    next_step = latest_next_step(entries, actions)
 
     prompts = {
         "gentle_coach": (
@@ -262,9 +296,10 @@ def current_checkin_id(now: str) -> str:
 def command_suggest(args: argparse.Namespace) -> None:
     log_path = Path(args.log)
     entries = load_entries(log_path)
+    actions = load_next_actions(Path(args.actions))
     voice = choose_voice(entries)
     hour = recommended_send_hour(entries)
-    prompt = build_prompt(voice, entries)
+    prompt = build_prompt(voice, entries, actions)
     print(f"voice: {voice}")
     print(f"recommended_send_hour: {hour}")
     print(f"prompt: {prompt}")
@@ -273,10 +308,11 @@ def command_suggest(args: argparse.Namespace) -> None:
 def command_send(args: argparse.Namespace) -> None:
     log_path = Path(args.log)
     entries = load_entries(log_path)
+    actions = load_next_actions(Path(args.actions))
     now = current_local_timestamp()
     voice = args.voice or choose_voice(entries)
     hour = recommended_send_hour(entries)
-    prompt = args.prompt or build_prompt(voice, entries)
+    prompt = args.prompt or build_prompt(voice, entries, actions)
     checkin_id = args.checkin_id or current_checkin_id(now)
     message_id = ""
 
@@ -325,10 +361,12 @@ def build_parser() -> argparse.ArgumentParser:
 
     suggest = subparsers.add_parser("suggest", help="Print today's adaptive prompt.")
     suggest.add_argument("--log", default=str(DEFAULT_LOG_PATH))
+    suggest.add_argument("--actions", default=str(DEFAULT_NEXT_ACTIONS_PATH))
     suggest.set_defaults(func=command_suggest)
 
     send = subparsers.add_parser("send", help="Send and log today's Discord prompt.")
     send.add_argument("--log", default=str(DEFAULT_LOG_PATH))
+    send.add_argument("--actions", default=str(DEFAULT_NEXT_ACTIONS_PATH))
     send.add_argument("--checkin-id", default="")
     send.add_argument("--dry-run", action="store_true")
     send.add_argument("--prompt", default="")

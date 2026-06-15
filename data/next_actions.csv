@@ -1,0 +1,7 @@
+id,status,priority,owner,action,why,done_condition
+JA-001,ready,1,Jack,Pick one finished artwork that might be sellable,Creates the starting point for a catalog or sales test,One finished piece is named or described in Discord
+JA-002,ready,2,Jack,Take one clear photo of the chosen artwork,Makes the piece usable for cataloging sharing and pricing,One clear photo is posted in Discord or saved for the catalog
+JA-003,ready,3,Jack,Write one working title for the chosen artwork,Turns finished art into a business asset with a name,One title is posted in Discord
+JA-004,ready,4,Jack,Write one sentence describing the chosen artwork,Creates reusable copy for a listing post or portfolio entry,One plain-language sentence is posted in Discord
+JA-005,ready,5,Jack,Choose whether the chosen artwork should be tested as an original print sticker or card,Moves the piece toward a concrete product path,One product path is chosen in Discord
+JA-006,ready,6,Jack,Name one person who might like seeing the chosen artwork,Starts a small low-pressure audience or buyer test,One possible supporter or buyer is named privately or in Discord

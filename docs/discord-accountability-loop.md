@@ -104,6 +104,16 @@ The durable log lives at:
 
 - `data/discord_accountability_log.csv`
 
+The specific task queue lives at:
+
+- `data/next_actions.csv`
+
+Daily prompts should prefer the first `ready` or `open` action assigned to Jack
+in `data/next_actions.csv`. Each action should be small enough to finish in one
+short sitting and should include a concrete done condition. If there is no ready
+action, the script falls back to the most recent `next_step` from the Discord
+accountability log.
+
 The log records:
 
 - Check-in id.
@@ -152,11 +162,13 @@ bot implementation with its own token handling and privacy review.
 Version one can be operated by a scheduler that runs the script once per day:
 
 1. Read `data/discord_accountability_log.csv`.
-2. Choose the adaptive voice.
-3. Recommend the active hour from previous response times.
-4. Send the prompt to Jack's private Discord channel.
-5. Append the prompt to the repo log.
-6. Later, summarize Jack's reply into the same log row.
+2. Read `data/next_actions.csv`.
+3. Choose the first ready, specific, small action assigned to Jack.
+4. Choose the adaptive voice.
+5. Recommend the active hour from previous response times.
+6. Send the prompt to Jack's private Discord channel.
+7. Append the prompt to the repo log.
+8. Later, summarize Jack's reply into the same log row.
 
 This is intentionally small. The important behavior is the daily nudge, adaptive
 voice, adaptive timing, and durable repo summary.
